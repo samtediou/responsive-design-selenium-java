@@ -1,0 +1,35 @@
+apply plugin: 'java'
+//apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version = '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext.junitVersion = '4.11'
+ext.seleniumVersion = '2.45.0'
+
+dependencies {
+    compile group: 'junit', name: 'junit', version: junitVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:seleniumVersion
+    compile 'io.selendroid:selendroid-client:0.16.0'
+    compile 'io.appium:java-client:1.1.0'
+    compile 'org.uiautomation:ios-driver:0.6.5'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+
+
